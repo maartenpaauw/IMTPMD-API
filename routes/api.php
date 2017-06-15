@@ -25,6 +25,7 @@ $only = [
  * User
  */
 Route::resource('user', 'UserController', $only);
+Route::post('user/login', 'UserController@login')->name('user.login');
 
 /*
  * Meeting
