@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => IMTPMD\User::class,
+            'model' => IMTPMD\Models\User::class,
         ],
 
         // 'users' => [

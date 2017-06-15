@@ -14,11 +14,7 @@ use Illuminate\Http\Request;
 */
 
 $only = [
-    'only' => [
-        'index',
-        'store',
-        'show'
-    ]
+    'only' => [ 'index', 'store', 'show' ]
 ];
 
 /*
