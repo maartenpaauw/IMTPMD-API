@@ -27,7 +27,23 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        $feedback = Feedback::create($request->all());
+        // Feedback ids.
+        $feedback_ids = $request->only([
+            'emotion_id',
+            'meeting_id',
+            'user_id'
+        ]);
+
+        // Create the feedback.
+        $feedback = Feedback::firstOrCreate($feedback_ids);
+
+        // Update the description.
+        $feedback->description = $request->input('description');
+
+        // Save it.
+        $feedback->save();
+
+        // Return it.
         return response($feedback);
     }
 
