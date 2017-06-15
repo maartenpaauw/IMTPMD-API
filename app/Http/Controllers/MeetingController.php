@@ -2,6 +2,7 @@
 
 namespace IMTPMD\Http\Controllers;
 
+use Illuminate\Http\Request;
 use IMTPMD\Http\Controllers\Controller;
 use IMTPMD\Models\Meeting;
 
@@ -21,11 +22,13 @@ class MeetingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-
+        $meeting = Meeting::create($request->all());
+        return response($meeting);
     }
 
     /**

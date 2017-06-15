@@ -22,10 +22,13 @@ class FeedbackController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
+        $feedback = Feedback::create($request->all());
+        return response($feedback);
     }
 
     /**
