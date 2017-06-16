@@ -38,6 +38,13 @@ class Meeting extends Model
     ];
 
     /**
+     * @var array
+     */
+    protected $appends = [
+        'feedback_stats'
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function feedback ()
@@ -51,5 +58,17 @@ class Meeting extends Model
     public function user ()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * @return array
+     */
+    public function getFeedbackStatsAttribute () {
+        return [
+            "total" => $this->feedback()->count(),
+            Emotion::blij()->slug => $this->feedback()->where('emotion_id', Emotion::blij()->id)->count(),
+            Emotion::neutraal()->slug => $this->feedback()->where('emotion_id', Emotion::neutraal()->id)->count(),
+            Emotion::verdrietig()->slug => $this->feedback()->where('emotion_id', Emotion::verdrietig()->id)->count()
+        ];
     }
 }
