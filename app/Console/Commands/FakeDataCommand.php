@@ -48,8 +48,8 @@ class FakeDataCommand extends Command
             ]);
 
             factory(User::class,     rand(20, 40))->create();
-            factory(Meeting::class,  rand(20, 40))->create();
-            factory(Feedback::class, rand(20, 40))->create();
+            factory(Meeting::class,  rand(10, 20))->create();
+            factory(Feedback::class, rand(50, 75))->create();
         }
     }
 }
