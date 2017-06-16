@@ -7,16 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model 
 {
     /**
-     * @var string
-     */
-    protected $table = 'feedback';
-
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
-
-    /**
      * @var array
      */
     protected $fillable = [

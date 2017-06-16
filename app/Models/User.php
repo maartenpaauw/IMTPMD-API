@@ -7,16 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model 
 {
     /**
-     * @var string
-     */
-    protected $table = 'users';
-
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
-
-    /**
      * @var array
      */
     protected $fillable = [

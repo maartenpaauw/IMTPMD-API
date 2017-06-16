@@ -7,16 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Emotion extends Model 
 {
     /**
-     * @var string
-     */
-    protected $table = 'emotions';
-
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
-
-    /**
      * @var array
      */
     protected $fillable = [

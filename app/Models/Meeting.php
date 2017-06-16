@@ -7,16 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Meeting extends Model 
 {
     /**
-     * @var string
-     */
-    protected $table = 'meetings';
-
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
-
-    /**
      * @var array
      */
     protected $dates = [
@@ -49,5 +39,4 @@ class Meeting extends Model
     {
         return $this->hasMany(Feedback::class, 'meeting_id', 'id');
     }
-
 }
