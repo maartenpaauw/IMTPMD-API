@@ -4,7 +4,11 @@ namespace IMTPMD\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Meeting extends Model 
+/**
+ * Class Meeting
+ * @package IMTPMD\Models
+ */
+class Meeting extends Model
 {
     /**
      * @var array
@@ -29,14 +33,23 @@ class Meeting extends Model
      * @var array
      */
     protected $with = [
-        'feedback'
+        'feedback',
+        'user'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function feedback()
+    public function feedback ()
     {
         return $this->hasMany(Feedback::class, 'meeting_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user ()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 }

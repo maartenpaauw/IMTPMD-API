@@ -4,21 +4,26 @@ namespace IMTPMD\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Emotion extends Model 
+/**
+ * Class Emotion
+ * @package IMTPMD\Models
+ */
+class Emotion extends Model
 {
     /**
      * @var array
      */
     protected $fillable = [
         'name',
-        'slug'
+        'slug',
     ];
 
     /**
      * @param $query
      * @return mixed
      */
-    public function scopeBlij ($query) {
+    public function scopeBlij($query)
+    {
         return $query->where('slug', 'blij')->first();
     }
 
@@ -26,7 +31,8 @@ class Emotion extends Model
      * @param $query
      * @return mixed
      */
-    public function scopeNeutraal ($query) {
+    public function scopeNeutraal($query)
+    {
         return $query->where('slug', 'neutraal')->first();
     }
 
@@ -34,7 +40,8 @@ class Emotion extends Model
      * @param $query
      * @return mixed
      */
-    public function scopeVerdrietig ($query) {
+    public function scopeVerdrietig($query)
+    {
         return $query->where('slug', 'verdrietig')->first();
     }
 }
