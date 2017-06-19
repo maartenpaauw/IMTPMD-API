@@ -19,14 +19,6 @@ class Emotion extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $appends = [
-        'android_image',
-        'android_image_active'
-    ];
-
-    /**
      * @param $query
      * @return mixed
      */
@@ -51,19 +43,5 @@ class Emotion extends Model
     public function scopeVerdrietig($query)
     {
         return $query->where('slug', 'verdrietig')->first();
-    }
-
-    /**
-     * @return string
-     */
-    public function getAndroidImageAttribute () {
-        return $this->slug . ".png";
-    }
-
-    /**
-     * @return string
-     */
-    public function getAndroidImageActiveAttribute () {
-        return $this->slug . "_active.png";
     }
 }
