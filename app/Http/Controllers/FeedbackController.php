@@ -70,18 +70,24 @@ class FeedbackController extends Controller
     public function giveFeedback(Request $request) {
 
         // Get all the information.
-        $meeting     = Meeting::where('id', $request->get("meeting_id"))->first();
-        $emotion     = Emotion::where('id', $request->get("emotion_id"))->first();
-        $user        = User::where('number', $request->get("number"))->first();
-        $description = $request->get("description");
+        $meeting = Meeting::where('id', $request->get("meeting_id"))->first();
+        $emotion = Emotion::where('id', $request->get("emotion_id"))->first();
+        $user    = User::where('number', $request->get("number"))->first();
 
         // Create the feedback.
-        $feedback = Feedback::create([
-            "emotion_id"  => $emotion->id,
-            "meeting_id"  => $meeting->id,
-            "user_id"     => $user->id,
-            "description" => $description,
+        $feedback = Feedback::firstOrCreate([
+            'meeting_id' => $meeting->id,
+            'user_id'    => $user->id
         ]);
+
+        // Attach the emotion.
+        $feedback->emotion_id = $emotion->id;
+
+        // Update the description.
+        $feedback->description = $request->input('description');
+
+        // Save it.
+        $feedback->save();
 
         // Return the feedback.
         return response($feedback);

@@ -9,7 +9,7 @@ class CreateFeedbackTable extends Migration {
 	{
 		Schema::create('feedback', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('emotion_id')->unsigned();
+			$table->integer('emotion_id')->unsigned()->default(1);
 			$table->integer('meeting_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->text('description')->nullable();
