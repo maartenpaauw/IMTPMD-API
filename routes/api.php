@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
+/*
+ * Only routes
+ */
 $only = [
     'only' => [ 'index', 'store', 'show' ]
 ];

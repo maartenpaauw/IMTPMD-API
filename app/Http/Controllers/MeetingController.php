@@ -2,9 +2,11 @@
 
 namespace IMTPMD\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use IMTPMD\Http\Controllers\Controller;
 use IMTPMD\Models\Meeting;
+use IMTPMD\Models\User;
 
 class MeetingController extends Controller
 {
@@ -27,7 +29,25 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
-        $meeting = Meeting::create($request->all());
+        // Get the data.
+        $user        = User::where('number', $request->get('number'))->first();
+        $name        = $request->get('name');
+        $description = $request->get('description');
+
+        // TODO fix this.
+        $starting_at = Carbon::now();
+        $ending_at   = Carbon::now();
+
+        // Meeting
+        $meeting = Meeting::create([
+            'user_id'     => $user->id,
+            'name'        => $name,
+            'description' => $description,
+            'starting_at' => $starting_at,
+            'ending_at'   => $ending_at
+        ]);
+
+        // Return the meeting.
         return response($meeting);
     }
 
