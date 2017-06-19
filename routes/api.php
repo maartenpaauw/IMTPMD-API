@@ -31,7 +31,8 @@ Route::resource('meeting', 'MeetingController', $only);
 /*
  * Feedback
  */
-Route::resource('feedback', 'FeedbackController', $only);
+Route::resource('feedback',  'FeedbackController', $only);
+Route::post('feedback/give', 'FeedbackController@giveFeedback');
 
 /*
  * Emotion

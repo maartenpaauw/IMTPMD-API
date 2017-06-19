@@ -4,7 +4,10 @@ namespace IMTPMD\Http\Controllers;
 
 use Illuminate\Http\Request;
 use IMTPMD\Http\Controllers\Controller;
+use IMTPMD\Models\Emotion;
 use IMTPMD\Models\Feedback;
+use IMTPMD\Models\Meeting;
+use IMTPMD\Models\User;
 
 class FeedbackController extends Controller
 {
@@ -56,6 +59,31 @@ class FeedbackController extends Controller
      */
     public function show(Feedback $feedback)
     {
+        return response($feedback);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function giveFeedback(Request $request) {
+
+        // Get all the information.
+        $meeting     = Meeting::where('id', $request->get("meeting_id"))->first();
+        $emotion     = Emotion::where('id', $request->get("emotion_id"))->first();
+        $user        = User::where('number', $request->get("number"))->first();
+        $description = $request->get("description");
+
+        // Create the feedback.
+        $feedback = Feedback::create([
+            "emotion_id"  => $emotion->id,
+            "meeting_id"  => $meeting->id,
+            "user_id"     => $user->id,
+            "description" => $description,
+        ]);
+
+        // Return the feedback.
         return response($feedback);
     }
 }
