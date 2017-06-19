@@ -3,7 +3,6 @@
 namespace IMTPMD\Http\Controllers;
 
 use Illuminate\Http\Request;
-use IMTPMD\Http\Controllers\Controller;
 use IMTPMD\Models\User;
 
 class UserController extends Controller

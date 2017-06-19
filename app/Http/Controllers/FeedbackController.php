@@ -3,10 +3,7 @@
 namespace IMTPMD\Http\Controllers;
 
 use Illuminate\Http\Request;
-use IMTPMD\Http\Controllers\Controller;
-use IMTPMD\Models\Emotion;
 use IMTPMD\Models\Feedback;
-use IMTPMD\Models\Meeting;
 use IMTPMD\Models\User;
 
 class FeedbackController extends Controller

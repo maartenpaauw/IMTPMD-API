@@ -4,7 +4,6 @@ namespace IMTPMD\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use IMTPMD\Http\Controllers\Controller;
 use IMTPMD\Models\Meeting;
 use IMTPMD\Models\User;
 

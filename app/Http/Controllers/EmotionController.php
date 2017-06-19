@@ -2,7 +2,6 @@
 
 namespace IMTPMD\Http\Controllers;
 
-use IMTPMD\Http\Controllers\Controller;
 use IMTPMD\Models\Emotion;
 
 class EmotionController extends Controller
