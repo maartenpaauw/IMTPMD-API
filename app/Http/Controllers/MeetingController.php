@@ -30,13 +30,11 @@ class MeetingController extends Controller
     public function store(Request $request)
     {
         // Get the data.
-        $user        = User::where('number', $request->get('number'))->first();
         $name        = $request->get('name');
         $description = $request->get('description');
-
-        // TODO fix this.
-        $starting_at = Carbon::now();
-        $ending_at   = Carbon::now();
+        $user        = User::where('number', $request->get('number'))->first();
+        $starting_at = Carbon::createFromFormat('', $request->get('starting_at'));
+        $ending_at   = Carbon::createFromFormat('', $request->get('ending_at'));
 
         // Meeting
         $meeting = Meeting::create([
