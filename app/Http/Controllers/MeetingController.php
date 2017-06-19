@@ -33,8 +33,8 @@ class MeetingController extends Controller
         $name        = $request->get('name');
         $description = $request->get('description');
         $user        = User::where('number', $request->get('number'))->first();
-        $starting_at = Carbon::createFromFormat('', $request->get('starting_at'));
-        $ending_at   = Carbon::createFromFormat('', $request->get('ending_at'));
+        $starting_at = Carbon::createFromFormat('dd/MM/yy hh:mm', $request->get('starting_at'));
+        $ending_at   = Carbon::createFromFormat('dd/MM/yy hh:mm', $request->get('ending_at'));
 
         // Meeting
         $meeting = Meeting::create([
