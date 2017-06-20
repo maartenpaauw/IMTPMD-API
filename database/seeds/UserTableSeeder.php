@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use \IMTPMD\Models\User;
+use IMTPMD\Models\User;
 
 class UserTableSeeder extends Seeder
 {

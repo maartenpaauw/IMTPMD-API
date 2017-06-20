@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use \IMTPMD\Models\Emotion;
+use IMTPMD\Models\Emotion;
 
 class EmotionTableSeeder extends Seeder
 {
