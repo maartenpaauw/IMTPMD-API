@@ -41,7 +41,7 @@ class FakeDataCommand extends Command
      */
     public function handle()
     {
-        if ($this->confirm('Do you wish to continue?') && app()->environment() == "local")
+        if (app()->environment() == "local")
         {
             Artisan::call('migrate:refresh', [
                 '--seed' => true
