@@ -29,20 +29,22 @@ class MeetingController extends Controller
     public function store(Request $request)
     {
         // Get the data.
-        $name        = $request->get('name');
+        $name = $request->get('name');
         $description = $request->get('description');
-        $user        = User::where('number', $request->get('number'))->first();
+        $user = User::where('number', $request->get('number'))->first();
         $starting_at = Carbon::createFromFormat('d/m/y H:i', $request->get('starting_at'));
-        $ending_at   = Carbon::createFromFormat('d/m/y H:i', $request->get('ending_at'));
+        $ending_at = Carbon::createFromFormat('d/m/y H:i', $request->get('ending_at'));
 
         // Meeting
-        $meeting = Meeting::create([
-            'user_id'     => $user->id,
-            'name'        => $name,
-            'description' => $description,
-            'starting_at' => $starting_at,
-            'ending_at'   => $ending_at
-        ]);
+        $meeting = Meeting::create(
+            [
+                'user_id' => $user->id,
+                'name' => $name,
+                'description' => $description,
+                'starting_at' => $starting_at,
+                'ending_at' => $ending_at,
+            ]
+        );
 
         // Return the meeting.
         return response($meeting);

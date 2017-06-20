@@ -41,14 +41,16 @@ class FakeDataCommand extends Command
      */
     public function handle()
     {
-        if (app()->environment() == "local")
-        {
-            Artisan::call('migrate:refresh', [
-                '--seed' => true
-            ]);
+        if (app()->environment() == "local") {
+            Artisan::call(
+                'migrate:refresh',
+                [
+                    '--seed' => true,
+                ]
+            );
 
-            factory(User::class,     rand(20, 40))->create();
-            factory(Meeting::class,  rand(10, 20))->create();
+            factory(User::class, rand(20, 40))->create();
+            factory(Meeting::class, rand(10, 20))->create();
             factory(Feedback::class, rand(50, 75))->create();
         }
     }

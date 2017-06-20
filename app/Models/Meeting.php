@@ -15,7 +15,7 @@ class Meeting extends Model
      */
     protected $dates = [
         'starting_at',
-        'ending_at'
+        'ending_at',
     ];
 
     /**
@@ -26,7 +26,7 @@ class Meeting extends Model
         'name',
         'description',
         'starting_at',
-        'ending_at'
+        'ending_at',
     ];
 
     /**
@@ -34,20 +34,20 @@ class Meeting extends Model
      */
     protected $with = [
         'feedback',
-        'user'
+        'user',
     ];
 
     /**
      * @var array
      */
     protected $appends = [
-        'feedback_stats'
+        'feedback_stats',
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function feedback ()
+    public function feedback()
     {
         return $this->hasMany(Feedback::class, 'meeting_id', 'id');
     }
@@ -55,7 +55,7 @@ class Meeting extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user ()
+    public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
@@ -63,12 +63,13 @@ class Meeting extends Model
     /**
      * @return array
      */
-    public function getFeedbackStatsAttribute () {
+    public function getFeedbackStatsAttribute()
+    {
         return [
             "total" => $this->feedback()->count(),
             Emotion::blij()->slug => $this->feedback()->where('emotion_id', Emotion::blij()->id)->count(),
             Emotion::neutraal()->slug => $this->feedback()->where('emotion_id', Emotion::neutraal()->id)->count(),
-            Emotion::verdrietig()->slug => $this->feedback()->where('emotion_id', Emotion::verdrietig()->id)->count()
+            Emotion::verdrietig()->slug => $this->feedback()->where('emotion_id', Emotion::verdrietig()->id)->count(),
         ];
     }
 }

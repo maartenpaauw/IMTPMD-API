@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'number' => 's1097398',
-            ]
+            ],
         ];
 
         foreach ($users as $user) {

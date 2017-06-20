@@ -32,10 +32,12 @@ class FeedbackController extends Controller
         $user = User::where('number', $request->get("number"))->first();
 
         // Create the feedback.
-        $feedback = Feedback::firstOrCreate([
-            'meeting_id' => $request->get("meeting_id"),
-            'user_id'    => $user->id
-        ]);
+        $feedback = Feedback::firstOrCreate(
+            [
+                'meeting_id' => $request->get("meeting_id"),
+                'user_id' => $user->id,
+            ]
+        );
 
         // Attach the emotion.
         $feedback->emotion_id = $request->get("emotion_id");

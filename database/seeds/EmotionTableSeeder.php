@@ -15,16 +15,16 @@ class EmotionTableSeeder extends Seeder
         $emotions = [
             [
                 'name' => 'Blij',
-                'slug' => str_slug('Blij')
+                'slug' => str_slug('Blij'),
             ],
             [
                 'name' => 'Neutraal',
-                'slug' => str_slug('Neutraal')
+                'slug' => str_slug('Neutraal'),
             ],
             [
                 'name' => 'Verdrietig',
-                'slug' => str_slug('Verdrietig')
-            ]
+                'slug' => str_slug('Verdrietig'),
+            ],
         ];
 
         foreach ($emotions as $emotion) {

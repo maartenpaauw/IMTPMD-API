@@ -15,7 +15,7 @@
  * Only routes
  */
 $only = [
-    'only' => [ 'index', 'store', 'show' ]
+    'only' => ['index', 'store', 'show'],
 ];
 
 /*
@@ -32,11 +32,15 @@ Route::resource('meeting', 'MeetingController', $only);
 /*
  * Feedback
  */
-Route::resource('feedback',  'FeedbackController', $only);
+Route::resource('feedback', 'FeedbackController', $only);
 
 /*
  * Emotion
  */
-Route::resource('emotion', 'EmotionController', [
-    'only' => ['index', 'show']
-]);
+Route::resource(
+    'emotion',
+    'EmotionController',
+    [
+        'only' => ['index', 'show'],
+    ]
+);

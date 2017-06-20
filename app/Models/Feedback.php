@@ -17,7 +17,7 @@ class Feedback extends Model
         'emotion_id',
         'meeting_id',
         'user_id',
-        'description'
+        'description',
     ];
 
     /**
@@ -25,7 +25,7 @@ class Feedback extends Model
      */
     protected $with = [
         'emotion',
-        'user'
+        'user',
     ];
 
     /**

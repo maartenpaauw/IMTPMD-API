@@ -28,6 +28,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = User::create($request->all());
+
         return response($user);
     }
 
@@ -51,8 +52,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
-    public function login (Request $request) {
+    public function login(Request $request)
+    {
         $user = User::firstOrCreate($request->all());
+
         return response($user);
     }
 }
